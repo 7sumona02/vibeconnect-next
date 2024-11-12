@@ -2,7 +2,9 @@
 'use client';
 import ArrowButton from '@/components/FollowBtn';
 import ProfileIcon from '@/components/ProfileIcon';
-import { Ellipsis, Heart, MessageCircle, Share2 } from 'lucide-react';
+import { Searchbar } from '@/components/Searchbar';
+import { Compass, Ellipsis, Heart, MessageCircle, Moon, Share2 } from 'lucide-react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
 const Page = () => {
@@ -10,10 +12,51 @@ const Page = () => {
   const content = searchParams.get('content'); // Get content from query parameters
 
   return (
-    <div>
-      <h1>Anime Page</h1>
-      <p>Welcome to the Anime page!</p>
-      {content && <Card content={content} />} {/* Display dynamic content in Card */}
+    <div className='h-screen w-screen bg-black overflow-hidden'>
+      <div className='flex h-screen'>
+        <div className='w-1/4 py-8 px-20 flex flex-col items-center border-r border-neutral-800'>
+          <div>
+            <Link href='/' className='font-bold text-2xl text-right'>VibeConnect</Link>
+          </div>
+          <div className='flex flex-col gap-5 text-neutral-400 py-20'>
+            <div className='flex items-center gap-2 hover:text-white duration-300 transition-all'>
+              <Compass size={20} />
+              <Link href='/explore'>Explore</Link>
+            </div>
+            <div className='flex items-center gap-2 hover:text-white duration-300 transition-all'>
+              <Moon size={20} />Change Theme
+            </div>
+          </div>
+        </div>
+
+        <div className='w-2/4 border-r border-neutral-800 bg-neutral-900/50 flex flex-col items-center'>
+          <div className='absolute w-[45em] z-50'>
+            <div className='flex justify-between items-center px-10 py-6'>
+              <div>Profile</div>
+              <Link href='/'>
+                <ArrowButton text='Feed' />
+              </Link>
+            </div>
+          </div>
+          <div className='py-[7em] px-10'>
+            {content && <Card content={content} />}
+          </div>
+        </div>
+
+        <div className='w-1/4 bg-neutral-900/50 py-8 px-5'>
+          <div className='flex flex-col gap-10'>
+            <Searchbar />
+            <div className='flex flex-col gap-4 ml-2'>
+              <h1 className='text-lg font-bold border-b border-neutral-700 py-2'>Trending Spaces</h1>
+              <div className='flex flex-col gap-2'>
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -65,3 +108,17 @@ const Card = ({ content }: { content: string }) => {
 };
 
 export default Page;
+
+const SpaceCard = () => {
+  return (
+    <div className='bg-neutral-900 py-4 px-6 rounded-xl'>
+      <div className='flex gap-4 items-center justify-between'>
+        <div className='flex items-center gap-4'>
+          <img src="/cherry.jpg" className="w-10 h-full object-cover rounded-xl" alt="Space Card" />
+          <span className='font-bold lowercase'>Cherry</span>
+        </div>
+        <span className='text-[#326dfc] text-sm font-bold'>Follow</span>
+      </div>
+    </div>
+  );
+};
