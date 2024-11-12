@@ -1,0 +1,19 @@
+.scrollable-content {
+    max-height: 200vh; /* Set a height for scrolling */
+    overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.scrollable-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollable-content {
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.scrollable-content {
+    -ms-overflow-style: none;
+}

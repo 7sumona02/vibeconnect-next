@@ -2,8 +2,9 @@ import { Compass, Ellipsis, Heart, MessageCircle, Moon, Share2 } from 'lucide-re
 import Link from 'next/link'
 import React from 'react'
 import ArrowButton from './FollowBtn'
-import AvatarList from './Avatar'
 import { Searchbar } from './Searchbar'
+import './home.css'
+import ProfileIcon from './ProfileIcon'
 
 const Home = () => {
   return (
@@ -18,12 +19,9 @@ const Home = () => {
                 <div className='flex items-center gap-2 hover:text-white duration-300 transition-all'><Moon size={20} />Change Theme</div>
             </div>
         </div>
-        <div className='w-2/4 overflow-y-scroll border-r border-neutral-800 bg-neutral-900/50 flex flex-col items-center'>
+        <div className='w-2/4 overflow-y-scroll border-r border-neutral-800 bg-neutral-900/50 flex flex-col items-center scrollable-content'>
             <div className='absolute w-[45em] z-50'>
-                <div className='flex justify-between items-center px-10 py-6 bg-black/70 backdrop-blur-lg transition-all'>
-                    <div>
-                        profile
-                    </div>
+                <div className='flex justify-end px-10 py-6 bg-black/60 backdrop-blur-xl transition-all'>
                     <div>
                         <Link href='/post'><ArrowButton text='Post' /></Link>
                     </div>
@@ -62,19 +60,19 @@ const Card = () => {
     return (
         <div className='w-full h-full'>
             <div className='bg-black rounded-xl border-2 border-neutral-800 flex flex-col gap-2'>
-                <div className="px-10 header flex items-center justify-between -mt-10">
+                <div className="px-10 header flex items-center justify-between mt-4">
                     <div className='flex items-center gap-4'>
-                        <div className="profile flex items-center">
-                            <AvatarList />
+                        <div className="profile flex items-center gap-2">
+                            <ProfileIcon />
                             <p className='lowercase font-bold'>David</p>
                         </div>
                         <div className="followbtn"><ArrowButton text='Follow' /></div>
                     </div>
                     <div>
-                        <Ellipsis className='text-neutral-400' size={20} />
+                        <Ellipsis className='text-neutral-400 cursor-pointer' size={20} />
                     </div>
                 </div>
-                <div className="img -mt-12 -ml-2 px-10">
+                <div className="img mt-2 -ml-2 px-10">
                     <div className="grid grid-cols-3 gap-2">
                         <div>
                             <img src="/cherry.jpg" className="w-full h-full object-cover rounded-xl" />
