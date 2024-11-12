@@ -1,3 +1,5 @@
+import EmailCard from "@/components/EmailCard"
+import ArrowButton from "@/components/FollowBtn"
 import { Searchbar } from "@/components/Searchbar"
 import { Compass, Moon } from "lucide-react"
 import Link from "next/link"
@@ -16,9 +18,19 @@ const Home = () => {
                 <div className='flex items-center gap-2 hover:text-white duration-300 transition-all'><Moon size={20} />Change Theme</div>
             </div>
         </div>
-        <div className='w-2/4 overflow-y-scroll border-r border-neutral-800 bg-neutral-900/50'>
-            <div className="flex justify-center items-center h-screen">
-                hello you can post here...
+        <div className='w-2/4 border-r border-neutral-800 bg-neutral-900/50 flex flex-col items-center'>
+            <div className='absolute w-[45em] z-50'>
+                <div className='flex justify-between items-center px-10 py-6'>
+                    <div>
+                        profile
+                    </div>
+                    <div>
+                        <ArrowButton text='Submit' />
+                    </div>
+                </div>
+            </div>
+            <div className='py-[7em]'>
+                <EmailCard />
             </div>
         </div>
         <div className='w-1/4 bg-neutral-900/50 py-8 px-5'>
