@@ -27,9 +27,9 @@ const Home = () => {
                     <div>
                         profile
                     </div>
-                    <div>
-                        <ArrowButton text='Submit' />
-                    </div>
+                    <Link href='/'>
+                        <ArrowButton text='Feed' />
+                    </Link>
                 </div>
             </div>
             <div className='py-[7em]'>
@@ -123,19 +123,25 @@ const EmailCard: React.FC = () => {
           )}
         </div>
 
-        <div className="flex justify-end gap-1 pt-2">
-          <div className="mt-4 self-end rounded-full text-neutral-400 px-1 cursor-pointer">
-            <InputFile onImageSelect={handleImageSelect} />
+        <div className="flex justify-between items-center gap-1 pt-2">
+          <div className="flex">
+            <div className="mt-4 self-end rounded-full text-neutral-400 px-1 cursor-pointer">
+              <InputFile onImageSelect={handleImageSelect} />
+            </div>
+            <div className="mt-4 self-end rounded-full text-neutral-400 px-1 cursor-pointer">
+              <Link2 />
+            </div>
+            <div className="mt-4 self-end rounded-full text-neutral-400 px-1 cursor-pointer">
+              <User />
+            </div>
           </div>
-          <div className="mt-4 self-end rounded-full text-neutral-400 px-1 cursor-pointer" onClick={handleSubmit}>
-            Submit 
+
+          <div>
+            <div className="mt-4 self-end rounded-full text-neutral-400 px-1 cursor-pointer" onClick={handleSubmit}>
+              <button onClick={handleSubmit} className="bg-[#d3ff30] py-2 px-4 rounded-full text-black text-sm font-bold">Submit</button>
+            </div>
           </div>
-          <div className="mt-4 self-end rounded-full text-neutral-400 px-1 cursor-pointer">
-            <Link2 />
-          </div>
-          <div className="mt-4 self-end rounded-full text-neutral-400 px-1 cursor-pointer">
-            <User />
-          </div>
+          
         </div>
       </div>
     </div>
