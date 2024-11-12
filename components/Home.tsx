@@ -1,4 +1,4 @@
-import { Compass, Cross, Ellipsis, Heart, MessageCircle, Moon, Share2 } from 'lucide-react'
+import { Compass, Ellipsis, Heart, MessageCircle, Moon, Share2 } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import ArrowButton from './FollowBtn'
@@ -18,8 +18,18 @@ const Home = () => {
                 <div className='flex items-center gap-2 hover:text-white duration-300 transition-all'><Moon size={20} />Change Theme</div>
             </div>
         </div>
-        <div className='w-2/4  overflow-y-scroll border-r border-neutral-800 bg-neutral-900/50 px-10 py-20'>
-            <div className='flex flex-col gap-10'>
+        <div className='w-2/4 overflow-y-scroll border-r border-neutral-800 bg-neutral-900/50 flex flex-col items-center'>
+            <div className='absolute w-[45em] z-50'>
+                <div className='flex justify-between items-center px-10 py-6 bg-black/70 backdrop-blur-lg transition-all'>
+                    <div>
+                        profile
+                    </div>
+                    <div>
+                        <Link href='/post'><ArrowButton text='Post' /></Link>
+                    </div>
+                </div>
+            </div>
+            <div className='flex flex-col gap-10 py-32 px-10'>
                 <Card />
                 <Card />
                 <Card />
@@ -77,7 +87,7 @@ const Card = () => {
                         </div>
                     </div>
                 </div>
-                <div className="content bg-neutral-900 rounded-b-lg">
+                <div className="content bg-neutral-900 rounded-b-lg mt-1">
                     <div className='px-10 py-4 text-sm -ml-2 caption'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt, unde?Lorem ipsum dolor sit amet consectetur.</div>
                     <div className="icons"></div>
                     <div className='px-10 py-2 text-neutral-400 -ml-2 tags'>#blog #cherry</div>
